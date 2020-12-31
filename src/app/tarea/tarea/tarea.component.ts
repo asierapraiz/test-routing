@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TareaService } from './../services/tarea.service';
 import { Subscription }   from 'rxjs';
 import { slideInAnimation } from './../../animations';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet , Router, ActivatedRoute } from '@angular/router';
 
 
 
@@ -22,7 +22,7 @@ export class TareaComponent implements OnInit {
   intentos: number = 1;
   showComponent: boolean=true;
   
-  constructor(private ts: TareaService) { }
+  constructor(private ts: TareaService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.subscription = this.ts.addItemToBasket$.subscribe(
@@ -32,9 +32,9 @@ export class TareaComponent implements OnInit {
           console.log("ya es tres");
           //this.ts.reset();
           this.errores=0;
-          this.intentos++;
-          this.showComponent=false;
-          setTimeout(()=>this.showComponent=true);
+          this.intentos++;          
+          this.router.navigate(['./mensaje'], { relativeTo: this.route });
+          //setTimeout(()=>this.showComponent=true);
         }
       });      
       

@@ -12,7 +12,7 @@ const routes: Routes = [
   },
   //{ path: 'tarea', component: TareaModule },
   { path: 'landing', component: LandingComponent},
-  { path: 'product', component: ProductStoreComponent ,
+  { path: 'product', component: ProductStoreComponent,
     children: [
       { path: 'detail/:id', component: ProductDetailComponent}
     ]

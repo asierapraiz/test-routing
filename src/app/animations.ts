@@ -18,20 +18,20 @@ export const slideInAnimation =
                 })
             ]),
             query(':enter', [
-                style({ left: '-100%' })
+                style({ left: '200%' })
             ]),
             query(':leave', animateChild()),
             group([
                 query(':leave', [
-                    animate('300ms ease-out', style({ left: '100%' }))
+                    animate('300ms ease-in', style({ left: '120%' }))
                 ]),
                 query(':enter', [
-                    animate('300ms ease-out', style({ left: '0%' }))
+                    animate('500ms ease-out', style({ left: '0%' }))
                 ])
             ]),
             query(':enter', animateChild()),
         ]),
-        transition('* <=> FilterPage', [
+        transition('* <=> MensajePage', [
             style({ position: 'relative' }),
             query(':enter, :leave', [
                 style({
@@ -42,7 +42,7 @@ export const slideInAnimation =
                 })
             ]),
             query(':enter', [
-                style({ left: '-100%' })
+                style({ left: '100%' })
             ]),
             query(':leave', animateChild()),
             group([
